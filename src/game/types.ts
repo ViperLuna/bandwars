@@ -65,8 +65,48 @@ export interface LogEntry {
   text: string
 }
 
+export interface Activity {
+  id: string
+  name: string
+  blurb: string
+  kind: 'practice' | 'lessons' | 'hangout' | 'promo' | 'busk' | 'write'
+  ap: number
+  cost: number
+  /** Effect size; meaning depends on kind. */
+  power: number
+}
+
+export interface Studio {
+  id: string
+  name: string
+  blurb: string
+  ap: number
+  cost: number
+  /** Typical production polish, 0-100. */
+  production: number
+  locked?: boolean
+  lockedNote?: string
+}
+
+export interface Song {
+  id: string
+  title: string
+  genreId: string
+  writerId: string
+  writerName: string
+  /** Songwriting quality, 0-100. */
+  quality: number
+  status: 'draft' | 'recorded' | 'released'
+  studioId?: string
+  /** Quality after recording (writing + production). */
+  finalQuality?: number
+  releasedWeek?: number
+  totalStreams: number
+  lastWeekStreams: number
+}
+
 export interface GameState {
-  version: 2
+  version: 3
   week: number
   money: number
   bandName: string
@@ -78,6 +118,10 @@ export interface GameState {
   /** One search per week. */
   searched: boolean
   log: LogEntry[]
+  /** Action points left this week. */
+  ap: number
+  fans: number
+  songs: Song[]
   seed: number
   nextId: number
 }
@@ -94,8 +138,10 @@ export interface NewGameOptions {
 
 export type Result = { ok: true; state: GameState } | { ok: false; reason: string }
 
+export const AP_PER_WEEK = 6
+
 export const newGame = (o: NewGameOptions): GameState => ({
-  version: 2,
+  version: 3,
   week: 1,
   money: o.difficulty.startMoney,
   bandName: o.bandName.trim(),
@@ -117,6 +163,9 @@ export const newGame = (o: NewGameOptions): GameState => ({
   candidates: [],
   searched: false,
   log: [{ week: 1, text: `${o.bandName.trim()} is born. Time to make some noise.` }],
+  ap: AP_PER_WEEK,
+  fans: 0,
+  songs: [],
   seed: o.seed ?? (Date.now() & 0x7fffffff),
   nextId: 1,
 })

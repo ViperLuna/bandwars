@@ -2,6 +2,8 @@ import { getDifficulty, getGenre } from '../../game/data'
 import { advanceWeek, weekOfYear, yearOf } from '../../game/sim'
 import type { GameState } from '../../game/types'
 import { Panel } from '../components/Panel'
+import { ActivitiesPanel } from '../panels/ActivitiesPanel'
+import { SongsPanel } from '../panels/SongsPanel'
 import { LogPanel } from '../panels/LogPanel'
 import { RecruitPanel } from '../panels/RecruitPanel'
 import { RosterPanel } from '../panels/RosterPanel'
@@ -22,9 +24,12 @@ export function GameScreen({ state, setState, onQuit }: Props) {
         <Panel title="Calendar">
           <p>Year {yearOf(state.week)}, Week {weekOfYear(state.week)}</p>
           <p>Cash: <strong>${state.money}</strong></p>
+          <p>Action points: <strong>{state.ap}</strong> · Fans: <strong>{Math.floor(state.fans)}</strong></p>
           <button onClick={() => setState(advanceWeek(state))}>Next week</button>
         </Panel>
         <RosterPanel state={state} setState={setState} />
+        <ActivitiesPanel state={state} setState={setState} />
+        <SongsPanel state={state} setState={setState} />
         <RecruitPanel state={state} setState={setState} />
         <LogPanel state={state} />
       </div>

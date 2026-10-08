@@ -1,0 +1,7 @@
+[
+  { "id": "basement",  "name": "Basement Recording",   "blurb": "A laptop, a mic, and a mattress on the wall.",     "ap": 1, "cost": 20,   "production": 25 },
+  { "id": "home",      "name": "Home Studio",          "blurb": "A friend's setup with real monitors.",              "ap": 2, "cost": 100,  "production": 40 },
+  { "id": "local",     "name": "Local Studio",         "blurb": "A proper room with an engineer who cares.",         "ap": 2, "cost": 500,  "production": 58 },
+  { "id": "pro",       "name": "Pro Studio",           "blurb": "Big console, big sound, big invoice.",              "ap": 2, "cost": 2500, "production": 78 },
+  { "id": "label",     "name": "Major Production Co.", "blurb": "Legendary producers who sign the checks.",          "ap": 2, "cost": 0,    "production": 92, "locked": true, "lockedNote": "Requires a record contract" }
+]

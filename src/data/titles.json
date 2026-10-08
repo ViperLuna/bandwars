@@ -1,0 +1,18 @@
+{
+  "templates": [
+    "{adj} {noun}",
+    "{verb} in the {place}",
+    "{noun} of {place}",
+    "Don't {verb} Me, {noun}",
+    "{adj} {noun} Blues",
+    "Last Night in {place}",
+    "{verb} Like a {noun}",
+    "My {adj} {noun}"
+  ],
+  "lists": {
+    "adj": ["Broken", "Electric", "Lonely", "Burning", "Cheap", "Wild", "Quiet", "Greasy", "Golden", "Reckless", "Sleepy", "Sticky"],
+    "noun": ["Heart", "Highway", "Pizza", "Thunder", "Ghost", "Cadillac", "Sunday", "Dream", "Hangover", "Anthem", "Moon", "Landlord"],
+    "place": ["Detroit", "the Basement", "Nashville", "the Parking Lot", "Memphis", "the Suburbs", "Tulsa", "the Laundromat", "Austin", "the Rain"],
+    "verb": ["Dancing", "Running", "Crying", "Driving", "Falling", "Sleeping", "Screaming", "Waiting", "Burning", "Dreaming"]
+  }
+}

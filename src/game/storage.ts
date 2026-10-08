@@ -1,3 +1,4 @@
+import { AP_PER_WEEK } from './types'
 import type { GameState } from './types'
 
 /** Swappable save layer: localStorage now, Supabase later. */
@@ -17,9 +18,9 @@ export const localBackend: SaveBackend = {
     try {
       const raw = localStorage.getItem(KEY)
       if (!raw) return null
-      const s = JSON.parse(raw) as GameState
-      // Older save formats are dropped for now; add migrations once there are real players.
-      return s.version === 2 ? s : null
+      const s = JSON.parse(raw) as { version: number }
+      if (s.version === 2) return { ...(s as object), version: 3, ap: AP_PER_WEEK, fans: 0, songs: [] } as unknown as GameState
+      return s.version === 3 ? (s as GameState) : null
     } catch { return null }
   },
   async clear() {

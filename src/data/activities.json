@@ -1,0 +1,11 @@
+[
+  { "id": "jam",       "name": "Garage Jam",        "blurb": "Free noise. Tiny skill gain for everyone.",                    "kind": "practice", "ap": 1, "cost": 0,  "power": 0.3 },
+  { "id": "rehearse",  "name": "Rehearsal Space",   "blurb": "Rent a room for the night. Better practice, better vibes.",    "kind": "practice", "ap": 1, "cost": 15, "power": 0.8 },
+  { "id": "lessons",   "name": "Private Lessons",   "blurb": "Pay a pro to whip one member into shape.",                      "kind": "lessons",  "ap": 2, "cost": 80, "power": 3 },
+  { "id": "hangout",   "name": "Band Hangout",      "blurb": "Pizza and bad jokes. Lifts everyone's mood.",                  "kind": "hangout",  "ap": 1, "cost": 10, "power": 8 },
+  { "id": "post",      "name": "Social Media Post", "blurb": "Post a clip. A few new fans might notice.",                    "kind": "promo",    "ap": 1, "cost": 5,  "power": 2 },
+  { "id": "busk",      "name": "Busking",           "blurb": "Play on a street corner for tips. Free money, some fans.",     "kind": "busk",     "ap": 2, "cost": 0,  "power": 35 },
+  { "id": "write-quick",  "name": "Quick Sketch",       "blurb": "Bang out a song fast. Rough around the edges.",         "kind": "write", "ap": 1, "cost": 0,  "power": -6 },
+  { "id": "write-song",   "name": "Write a Song",       "blurb": "Sit down and do it properly.",                          "kind": "write", "ap": 2, "cost": 0,  "power": 0 },
+  { "id": "write-retreat","name": "Songwriting Retreat","blurb": "A cabin, a pot of coffee, and no distractions.",        "kind": "write", "ap": 3, "cost": 60, "power": 8 }
+]

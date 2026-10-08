@@ -1,6 +1,8 @@
+import { FANS_PER_STREAM, MONEY_PER_STREAM, weeklyStreams } from './activities'
 import { addLog } from './band'
 import { getPersonality } from './data'
 import { createRng } from './rng'
+import { AP_PER_WEEK } from './types'
 import type { GameState, Member } from './types'
 
 export const WEEKS_PER_YEAR = 52
@@ -16,10 +18,24 @@ const clamp = (n: number) => Math.max(0, Math.min(100, n))
 /** Advance the game by one week. Pure: returns a new state. */
 export function advanceWeek(state: GameState): GameState {
   const r = createRng(state.seed)
-  let s: GameState = { ...state, week: state.week + 1, candidates: [], searched: false }
+  let s: GameState = { ...state, week: state.week + 1, candidates: [], searched: false, ap: AP_PER_WEEK }
   const log = (text: string) => { s = { ...s, log: addLog(s, text) } }
 
   s = { ...s, money: s.money + BASE_WEEKLY_INCOME }
+
+  // Streams for released songs
+  let totalStreams = 0
+  const songs = s.songs.map((song) => {
+    if (song.status !== 'released' || song.releasedWeek === undefined) return song
+    const n = Math.round(weeklyStreams(song, s.fans, state.week - song.releasedWeek) * (0.85 + r.next() * 0.3))
+    totalStreams += n
+    return { ...song, totalStreams: song.totalStreams + n, lastWeekStreams: n }
+  })
+  if (totalStreams > 0) {
+    const earned = Math.round(totalStreams * MONEY_PER_STREAM)
+    s = { ...s, songs, money: s.money + earned, fans: s.fans + totalStreams * FANS_PER_STREAM }
+    log(`Your songs got ${totalStreams.toLocaleString()} streams this week ($${earned}).`)
+  }
 
   const payroll = s.members.reduce((sum, m) => sum + m.salary, 0)
   const paid = s.money >= payroll
