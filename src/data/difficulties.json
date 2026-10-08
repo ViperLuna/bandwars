@@ -1,0 +1,5 @@
+[
+  { "id": "chill",     "name": "Chill",     "blurb": "Extra cash, friendly rivals. Great for learning the ropes.", "startMoney": 1500, "rivalStrength": 0.8, "rivalCompetitiveShare": 0.15 },
+  { "id": "normal",    "name": "Normal",    "blurb": "A fair grind. Money is tight but doable.",                    "startMoney": 750,  "rivalStrength": 1.0, "rivalCompetitiveShare": 0.3 },
+  { "id": "realistic", "name": "Realistic", "blurb": "Broke, hungry, and every rival is trying to eat your lunch.", "startMoney": 250,  "rivalStrength": 1.25, "rivalCompetitiveShare": 0.5 }
+]

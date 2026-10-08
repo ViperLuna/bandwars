@@ -1,28 +1,43 @@
-import { useState } from 'react'
-import { advanceWeek } from '../game/sim'
+import { useEffect, useState } from 'react'
+import { backend } from '../game/storage'
 import { newGame } from '../game/types'
-import { Panel } from './components/Panel'
-import { Portrait } from './components/Portrait'
+import type { GameState } from '../game/types'
+import { ChooseDifficulty } from './screens/ChooseDifficulty'
+import { CreateBand } from './screens/CreateBand'
+import type { BandChoice } from './screens/CreateBand'
+import { GameScreen } from './screens/GameScreen'
+import { Title } from './screens/Title'
+
+type Screen = 'title' | 'create' | 'difficulty' | 'game'
 
 export function App() {
-  const [state, setState] = useState(() => newGame('The Placeholders'))
+  const [screen, setScreen] = useState<Screen>('title')
+  const [state, setState] = useState<GameState | null>(null)
+  const [saved, setSaved] = useState<GameState | null>(null)
+  const [choice, setChoice] = useState<BandChoice | null>(null)
+
+  useEffect(() => { backend.load().then(setSaved) }, [])
+  useEffect(() => { if (state) { backend.save(state); setSaved(state) } }, [state])
+
+  if (screen === 'game' && state) {
+    return <GameScreen state={state} setState={setState} onQuit={() => setScreen('title')} />
+  }
+  if (screen === 'create') {
+    return <CreateBand onBack={() => setScreen('title')} onNext={(c) => { setChoice(c); setScreen('difficulty') }} />
+  }
+  if (screen === 'difficulty' && choice) {
+    return (
+      <ChooseDifficulty
+        onBack={() => setScreen('create')}
+        onStart={(difficulty) => { setState(newGame({ ...choice, difficulty })); setScreen('game') }}
+      />
+    )
+  }
   return (
-    <main className="app">
-      <h1>Band Wars</h1>
-      <div className="grid">
-        <Panel title="Your Band">
-          <div className="row">
-            <Portrait name={state.bandName} />
-            <div>
-              <strong>{state.bandName}</strong>
-              <div>Week {state.week} · ${state.money}</div>
-            </div>
-          </div>
-        </Panel>
-        <Panel title="Calendar">
-          <button onClick={() => setState(advanceWeek(state))}>Next week</button>
-        </Panel>
-      </div>
-    </main>
+    <Title
+      hasSave={!!saved}
+      onContinue={() => { setState(saved); setScreen('game') }}
+      onNew={() => setScreen('create')}
+    />
   )
 }
