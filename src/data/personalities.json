@@ -1,0 +1,8 @@
+[
+  { "id": "steady",     "name": "Steady",     "quitMod": 0.7, "dramaChance": 0,    "dramaMood": 0,   "dramaText": "" },
+  { "id": "loyal",      "name": "Loyal",      "quitMod": 0.4, "dramaChance": 0,    "dramaMood": 0,   "dramaText": "" },
+  { "id": "hothead",    "name": "Hothead",    "quitMod": 1.2, "dramaChance": 0.08, "dramaMood": -15, "dramaText": "{name} got into a shouting match at practice." },
+  { "id": "diva",       "name": "Diva",       "quitMod": 1.3, "dramaChance": 0.06, "dramaMood": -12, "dramaText": "{name} demanded a bigger dressing room. In a garage." },
+  { "id": "slacker",    "name": "Slacker",    "quitMod": 1.0, "dramaChance": 0.05, "dramaMood": -8,  "dramaText": "{name} showed up an hour late to practice." },
+  { "id": "workaholic", "name": "Workaholic", "quitMod": 0.8, "dramaChance": 0.03, "dramaMood": -6,  "dramaText": "{name} rewrote the whole bridge at 3 AM. Again." }
+]

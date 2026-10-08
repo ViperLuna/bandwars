@@ -1,0 +1,7 @@
+[
+  { "id": "common",    "name": "Common",    "skillMin": 15, "skillMax": 40, "salaryMin": 15,  "salaryMax": 30,  "color": "#9aa0b4" },
+  { "id": "uncommon",  "name": "Uncommon",  "skillMin": 35, "skillMax": 55, "salaryMin": 30,  "salaryMax": 55,  "color": "#4ade80" },
+  { "id": "rare",      "name": "Rare",      "skillMin": 50, "skillMax": 72, "salaryMin": 55,  "salaryMax": 100, "color": "#38bdf8" },
+  { "id": "epic",      "name": "Epic",      "skillMin": 68, "skillMax": 88, "salaryMin": 100, "salaryMax": 180, "color": "#c084fc" },
+  { "id": "legendary", "name": "Legendary", "skillMin": 85, "skillMax": 98, "salaryMin": 180, "salaryMax": 320, "color": "#fbbf24" }
+]

@@ -1,0 +1,7 @@
+[
+  { "id": "word-of-mouth", "name": "Word of Mouth",   "blurb": "Ask around. Free, but you mostly get whoever's lying around.", "cost": 0,    "count": 3, "weights": [70, 25, 5, 0, 0] },
+  { "id": "flyers",        "name": "Flyers & Posts",  "blurb": "Staple flyers to every pole in town.",                          "cost": 40,   "count": 3, "weights": [55, 32, 11, 2, 0] },
+  { "id": "local-scout",   "name": "Local Scout",     "blurb": "A guy who knows every bar band in the city.",                   "cost": 150,  "count": 4, "weights": [35, 38, 20, 6, 1] },
+  { "id": "agency",        "name": "Talent Agency",   "blurb": "Professional agents. Professional prices.",                     "cost": 600,  "count": 4, "weights": [15, 35, 33, 15, 2] },
+  { "id": "industry",      "name": "Industry Scout",  "blurb": "Flies around the country finding the real deal.",               "cost": 2000, "count": 5, "weights": [0, 15, 40, 35, 10] }
+]

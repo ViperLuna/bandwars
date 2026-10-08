@@ -21,3 +21,12 @@ button.secondary { background: var(--panel); border: 1px solid #3a3658; }
 button:disabled { opacity: .4; cursor: not-allowed; }
 button.card { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; text-align: left; background: var(--panel); border: 2px solid transparent; }
 button.card.selected { border-color: var(--accent); }
+.member { display: flex; gap: 12px; align-items: center; border-left: 4px solid; background: #1a1830; border-radius: 8px; padding: 10px; }
+.member-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mood { height: 6px; background: #3a3658; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.mood > div { height: 100%; }
+button.small { padding: 6px 12px; font-size: .85rem; }
+.small-text { font-size: .8rem; }
+.error { color: #f87171; }
+.log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; font-size: .9rem; }
+h3 { margin: 16px 0 8px; font-size: .95rem; }

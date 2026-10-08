@@ -18,7 +18,8 @@ export const localBackend: SaveBackend = {
       const raw = localStorage.getItem(KEY)
       if (!raw) return null
       const s = JSON.parse(raw) as GameState
-      return s.version === 1 ? s : null
+      // Older save formats are dropped for now; add migrations once there are real players.
+      return s.version === 2 ? s : null
     } catch { return null }
   },
   async clear() {
