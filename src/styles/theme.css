@@ -1,0 +1,11 @@
+/* Themes are just sets of CSS variables. Add [data-theme="..."] blocks for more. */
+:root {
+  --bg: #14121f;
+  --panel: #221f35;
+  --text: #f3f0ff;
+  --muted: #a39dc4;
+  --accent: #ff5d8f;
+  --radius: 12px;
+  --gap: 16px;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}

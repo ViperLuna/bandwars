@@ -1,0 +1,8 @@
+[
+  { "id": "rock",  "name": "Rock",  "instruments": ["guitar", "bass", "drums", "vocals"], "minMembers": 3, "maxMembers": 6 },
+  { "id": "pop",   "name": "Pop",   "instruments": ["vocals", "keys", "guitar"],          "minMembers": 1, "maxMembers": 5 },
+  { "id": "rap",   "name": "Rap",   "instruments": ["vocals", "dj"],                       "minMembers": 2, "maxMembers": 6 },
+  { "id": "metal", "name": "Metal", "instruments": ["guitar", "bass", "drums", "vocals"], "minMembers": 3, "maxMembers": 6 },
+  { "id": "punk",  "name": "Punk",  "instruments": ["guitar", "bass", "drums", "vocals"], "minMembers": 3, "maxMembers": 5 },
+  { "id": "ska",   "name": "Ska",   "instruments": ["guitar", "bass", "drums", "vocals", "horns"], "minMembers": 4, "maxMembers": 9 }
+]
